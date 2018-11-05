@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArchivedStudent.cs" />
     <Compile Include="ContentManage.cs" />
+    <Compile Include="MenuApp.cs" />
     <Compile Include="Staff.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="Person.cs" />

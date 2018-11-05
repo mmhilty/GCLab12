@@ -17,13 +17,14 @@ namespace GCLab12
           
         }
 
-        public static string letterVal(string inputstring)
+        public static string letterVal(string message)
         {
-            string InputString = inputstring;
+            Console.WriteLine(message);
+            string InputString = Console.ReadLine();
 
             while (true)
             {
-                if (Regex.IsMatch(InputString.ToLower(), @"^[aeiou]") && !(Regex.IsMatch(InputString, @"[0-9]")))
+                if (Regex.IsMatch(InputString.ToLower(), @"^[a-z]\w") )
                 {
                     return (InputString);
                 }
@@ -39,9 +40,10 @@ namespace GCLab12
 
         }
                
-        public static double NumberVal(string numberString)
+        public static double NumberVal(string message)
         {
-            string NumberString = numberString;
+            Console.WriteLine(message);
+            string NumberString = Console.ReadLine();
             double NumberDouble;
 
             while (true)
@@ -62,10 +64,34 @@ namespace GCLab12
             }
         }
 
-       
+        public static double NumberVal(string message, int MaxNumber)
+        {
+            Console.WriteLine(message);
+            string NumberString = Console.ReadLine();
+            double NumberDouble;
 
+            while (true)
+            {
+                if (double.TryParse(NumberString, out NumberDouble) && NumberDouble > 0 && NumberDouble <= MaxNumber)
+                {
+                    return NumberDouble;
+                }
+
+                else
+                {
+                    Console.WriteLine("Invalid input. Please make sure your input only contains numbers between 0 and 100.\n" +
+                        "Please try again");
+                }
+
+                NumberString = Console.ReadLine();
 
             }
+        }
+
+
+
+
+    }
         }
       
     

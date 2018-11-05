@@ -6,37 +6,62 @@ using System.Threading.Tasks;
 
 namespace GCLab12
 {
-    class Student : Person
+    class Student : Person, IComparable
     {
-        private string Program;
-        private int Year;
-        private double Fee;
-
-        public Student(string Name, string Address, string Program, int Year, double Fee) : base(Name, Address)
+        public string Program;
+        public int Year;
+        public double Fee;
+        public int FinalScore;
+        
+        public Student(string FirstName, string LastName, string Address, string Program, int Year, double Fee) : base(FirstName, LastName, Address)
         {
-            this.Name = Name;
+            this.FirstName = FirstName;
+            this.LastName = LastName;
             this.Address = Address;
             this.Program = Program;
             this.Year = Year;
             this.Fee = Fee;
+            this.FinalScore = -1;
         }
+
+
 
         public Student()
         {
-            Name = "DefaultName";
+            FirstName = "DefaultFirst";
+            LastName = "DefaultLast";
             Address = "DefaultAddress";
             Program = "DefaultProgram";
             Year = -1;
-            Fee = -1;              
+            Fee = -1;
+        }
+            
+        public string ReturnName()
+        {
+            return ($"{FirstName} {LastName}");
         }
 
-        public new string ToStringMethod()
+        public string ReturnLastName()
+        { return LastName; }
+
+        public override string ToString()
         {
-            return ($"Name: {Name} \n" +
-                $"Address: {Address} \n" +
-                $"Program: {Program} \n" +
-                $"Year: {Year}\n" +
-                $"Fee: {Fee}");
+            return ($"\n====================================================================\n" +
+                $"Student Record\n" +
+                $"====================================================================\n" +
+                $"  Name: {FirstName} {LastName} \n" +
+                $"  Address: {Address} \n" +
+                $"  Program: {Program} \n" +
+                $"  Year: {Year}\n" +
+                $"  Fee: {Fee}\n" +
+                "====================================================================\n");
+
+        }
+
+        public virtual int CompareTo(object obj)
+        {
+            Student student = (Student)obj;
+            return LastName.CompareTo(student.LastName);
         }
 
     }

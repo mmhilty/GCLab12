@@ -8,28 +8,32 @@ namespace GCLab12
 {
     class Person
     {
-        protected string Name;
+        protected string FirstName;
+        internal string LastName;
         protected string Address;
+
 
         public Person()
         {
-            Name = "PlaceholderName";
+            FirstName = "PlaceholderFirst";
+            LastName = "PlaceholderLast";
             Address = "PlaceHolderAddress";
 
         }
 
-        public Person(string name, string address)
+        public Person(string firstName, string lastName, string address)
         {
-            Name = name;
+            FirstName = firstName;
+            LastName = lastName;
             Address = address;
         }
 
-        public string ToStringMethod()
+        public override string ToString()
         {
-            return ($"Name: {Name} \n" +
+            return ($"Name: {FirstName} {LastName}\n" +
                 $"Address: {Address}");
         }
 
-
+        
     }
 }

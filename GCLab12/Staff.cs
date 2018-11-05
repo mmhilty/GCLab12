@@ -11,7 +11,7 @@ namespace GCLab12
         private string School;
         private double Pay;
 
-        public Staff(string Name, string Address, string School, double Pay) : base(Name, Address)
+        public Staff(string FirstName, string LastName, string Address, string School, double Pay) : base(FirstName, LastName, Address)
         {
             this.School = School;
             this.Pay = Pay;
@@ -19,7 +19,8 @@ namespace GCLab12
 
         public Staff()
         {
-            Name = "DefaultName";
+            FirstName = "DefaultFirst";
+            LastName = "DefaultLast";
             Address = "Default Address";
             School = "Default School";
             Pay = -1;
@@ -28,7 +29,7 @@ namespace GCLab12
 
         public new string ToStringMethod()
         {
-            return ($"Name: {Name} \n" +
+            return ($"Name: {FirstName} {LastName}\n" +
                 $"Address: {Address}\n" +
                 $"School: {School}\n" +
                 $"Pay: {Pay}");
